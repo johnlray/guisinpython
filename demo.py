@@ -20,6 +20,7 @@ layout = [
         [sg.Text('Variable label', size=(10, 1), font=user_typeface), sg.InputText(font=user_typeface)],
         [sg.Text('Item text', size=(10, 1), font=user_typeface), sg.InputText(font=user_typeface)],
         [sg.Text('What type of\nquestion is it?', size=(10,2), font=user_typeface), sg.InputText(font=user_typeface)],
+        [sg.Text('Randomizations', font=user_typeface), sg.Radio('None', 'C1', font=user_typeface), sg.Radio('One', 'C1', font=user_typeface), sg.Radio('Two', 'C3', font=user_typeface)],
         [sg.Submit('Submit'), sg.Cancel()]
         ]
 
@@ -27,9 +28,7 @@ window = sg.Window('Survey item entry window', layout, resizable=True, grab_anyw
 
 while True:
     event, values = window.read()
-    print(event, values)
     if event in (None,'Exit'):
         break
-
-window.close()
-print(event, values[0], values[1], values[2])
+    print(event, values)
+    window.close()
