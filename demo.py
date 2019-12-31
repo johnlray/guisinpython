@@ -14,13 +14,14 @@ sg.LOOK_AND_FEEL_TABLE['theme_percy'] = {'BACKGROUND': '#DAD0CE',
 sg.change_look_and_feel('theme_percy')
 
 layout = [
-        [sg.Text('Pleae enter a variable label, text, and punches')],
-        [sg.Text('Variable label', size=(30, 1)), sg.InputText()],
-        [sg.Text('Item text', size=(30, 1)), sg.InputText()],
-        [sg.Text('What type of\nquestion is it?', size=(30,1)), sg.InputText()]
+        [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
+        [sg.Text('Variable label', size=(30, 1), font='Raleway 20'), sg.InputText()],
+        [sg.Text('Item text', size=(30, 1), font='Raleway 20'), sg.InputText()],
+        [sg.Text('What type of\nquestion is it?', size=(30,2), font='Raleway 20'), sg.InputText()],
         ]
 
-window = sg.Window('Survey item entry window', layout, resizable=True)
+window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (600,600))
+
 event, values = window.read()
 window.close()
 print(event, values[0], values[1], values[2])
