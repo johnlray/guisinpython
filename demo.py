@@ -24,7 +24,7 @@ layout = [
         [sg.Submit('Submit'), sg.Cancel()]
         ]
 
-window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (600,600))
+window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (600,300))
 
 while True:
     event, values = window.read()
