@@ -19,7 +19,7 @@ layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
         [sg.Text('Variable label', size=(10, 1), font=user_typeface), sg.InputText(font=user_typeface)],
         [sg.Text('Item text', size=(10, 1), font=user_typeface), sg.InputText(font=user_typeface)],
-        [sg.Text('What type of\nquestion is it?', size=(10,2), font=user_typeface), sg.InputText(font=user_typeface)],
+        [sg.Text('What type of\nquestion is it?', font=user_typeface), sg.Radio('Single', 'C1', font=user_typeface), sg.Radio('Multiple', 'C1', font=user_typeface), sg.Radio('Open', 'C3', font=user_typeface), sg.Radio('Open', 'Dyngrid', font=user_typeface)],
         [sg.Text('Randomizations', font=user_typeface), sg.Radio('None', 'C1', font=user_typeface), sg.Radio('One', 'C1', font=user_typeface), sg.Radio('Two', 'C3', font=user_typeface)],
         [sg.Submit('Submit'), sg.Cancel()]
         ]
@@ -32,3 +32,4 @@ while True:
         break
     print(event, values)
     window.close()
+
