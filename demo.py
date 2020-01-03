@@ -24,6 +24,8 @@ layout = [
         [sg.Submit('Submit'), sg.Cancel()]
         ]
 
+# https://www.youtube.com/watch?v=Y0Jnyl7aM9g
+
 window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (600,300))
 
 while True:
