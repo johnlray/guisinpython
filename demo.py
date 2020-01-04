@@ -32,10 +32,26 @@ layout = [
 
 window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (700,300))
 
+i=0
+
 while True:
     event, values = window.read()
     if event in (None,'Exit'):
         break
-    print(event, values)
-    window.close()
+    i+=1
+    if event == 'Launch single window' and not single_window_active:
+        single_window_active = True
+        single_window_layout = [
+                [sg.Text('Single-response item')]
+                ]
+        single_window = sg.Window('Single-response item window', single_window_layout)
+    if single_window_active:
+        event, values = single_window.read(timeout=100)
+        if event != sg.TIMEOUT_KEY:
+            print("single-reponse item window ", event)
+        if event in (None, 'Exit'):
+            single_window_active = False
+            single_window.close()
+
+window.close()
 
