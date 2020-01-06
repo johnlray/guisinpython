@@ -25,9 +25,9 @@ abc_randomization_window_active = False
 layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
         [sg.Text('What type of\nquestion do you want to write?', font=user_typeface)],
-        [sg.Radio('Single', 'Launch single window', font=user_typeface), sg.Radio('Multiple', 'Launch multi window', font=user_typeface), sg.Radio('Open', 'Launch openend window', font=user_typeface)],
+        [sg.Radio('Single', 'Launch single window radio', font=user_typeface), sg.Radio('Multiple', 'Launch multi window', font=user_typeface), sg.Radio('Open', 'Launch openend window', font=user_typeface)],
         [sg.Radio('Dyngrid', 'Launch dyngrid window', font=user_typeface), sg.Radio('Message test with A/B split', 'Launch a/b split window', font=user_typeface), sg.Radio('Message test with A/B/C split', 'Launch a/b/c split window', font=user_typeface)],
-        [sg.Submit('Submit'), sg.Cancel()]
+        [sg.Submit('Launch single window'), sg.Cancel()]
         ]
 
 window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (700,300))
@@ -43,8 +43,10 @@ while True:
         single_window_active = True
         single_window_layout = [
                 [sg.Text('Single-response item')],
-                [sg.Textbox('Variable label', font=user_typeface)],
-                [sg.Textbox('Item text', font=user_typeface)]
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface)],
+                [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)]
+                [sg.Text('What type of item is it?')],
+                [sg.Radio('Support/oppose', font=user_typeface), sg.Radio('Approve/disapprove', font=user_typeface), sg.Radio('Agree/disagree', font=user_typeface)]
                 ]
         single_window = sg.Window('Single-response item window', single_window_layout)
     if single_window_active:
