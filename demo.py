@@ -42,7 +42,9 @@ while True:
     if event == 'Launch single window' and not single_window_active:
         single_window_active = True
         single_window_layout = [
-                [sg.Text('Single-response item')]
+                [sg.Text('Single-response item')],
+                [sg.Textbox('Variable label', font=user_typeface)],
+                [sg.Textbox('Item text', font=user_typeface)]
                 ]
         single_window = sg.Window('Single-response item window', single_window_layout)
     if single_window_active:
