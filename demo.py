@@ -25,8 +25,8 @@ abc_randomization_window_active = False
 layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
         [sg.Text('What type of question do you want to write?', font=user_typeface)],
-        [sg.Radio('Single', key='Launch single window radio', font=user_typeface), sg.Radio('Multiple', key='Launch multi window', font=user_typeface), sg.Radio('Open', key='Launch openend window', font=user_typeface)],
-        [sg.Radio('Dyngrid', key='Launch dyngrid window', font=user_typeface), sg.Radio('Message test with A/B split', key='Launch a/b split window', font=user_typeface), sg.Radio('Message test with A/B/C split', key='Launch a/b/c split window', font=user_typeface)],
+        [sg.Radio('Single', 'Launch single window radio', font=user_typeface), sg.Radio('Multiple', 'Launch multi window', font=user_typeface), sg.Radio('Open', 'Launch openend window', font=user_typeface)],
+        [sg.Radio('Dyngrid', 'Launch dyngrid window', font=user_typeface), sg.Radio('Message test with A/B split', 'Launch a/b split window', font=user_typeface), sg.Radio('Message test with A/B/C split', 'Launch a/b/c split window', font=user_typeface)],
         [sg.Submit('Single', key='Launch single window'), sg.Cancel()]
         ]
 
