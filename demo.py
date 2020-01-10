@@ -49,14 +49,14 @@ while True:
                 [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)],
                 [sg.Text('What type of item is it?', font=user_typeface)],
                 [sg.Radio('Support-oppose', 'RADIO1', font=user_typeface)],
-                [sg.Submit('Done')]
+                [sg.Submit('Done', key='SINGLEDONE')]
                 ]
         single_window = sg.Window('Single-response item window', single_window_layout)
     if single_window_active:
         event, values = single_window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print("single-reponse item window ", event)
-        if event in (None, 'Exit'):
+        if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
         if event == 'Show':
