@@ -25,8 +25,6 @@ abc_randomization_window_active = False
 layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
         [sg.Text('What type of question do you want to write?', font=user_typeface)],
-        #[sg.Radio('Single', 'SINGLE1', font=user_typeface), sg.Radio('Multiple', 'MULTI1', font=user_typeface), sg.Radio('Open', 'OPEN1', font=user_typeface)],
-        #[sg.Radio('Dyngrid', 'DYNGRID1', font=user_typeface), sg.Radio('Message test with A/B split', 'AB1', font=user_typeface), sg.Radio('Message test with A/B/C split', 'ABC1', font=user_typeface)],
         [sg.Button('Single', key='SINGLE1'), sg.Cancel()]
         ]
 
@@ -47,10 +45,11 @@ while True:
         single_window_active = True
         single_window_layout = [
                 [sg.Text('Single-response item')],
-                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface)],
-                [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)]
-                [sg.Text('What type of item is it?')],
-                [sg.Radio('Support/oppose', font=user_typeface), sg.Radio('Approve/disapprove', font=user_typeface), sg.Radio('Agree/disagree', font=user_typeface)]
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-IN-')],
+                [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)],
+                [sg.Text('What type of item is it?', font=user_typeface)],
+                [sg.Radio('Support-oppose', 'RADIO1', font=user_typeface)],
+                [sg.Submit('Done')]
                 ]
         single_window = sg.Window('Single-response item window', single_window_layout)
     if single_window_active:
@@ -60,6 +59,8 @@ while True:
         if event in (None, 'Exit'):
             single_window_active = False
             single_window.close()
+        if event == 'Show':
+            sg.popup('You entered', values['-IN-'])
 
 window.close()
 
