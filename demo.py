@@ -34,13 +34,10 @@ i=0
 
 while True:
     event, values = window.read(timeout=100)
-    #if event != sg.TIMEOUT_KEY:
-    #    print(i, event, values)
     if event in (None,'Exit'):
         break
-    #elif event == 'SINGLE1':
-    #    sg.popup('This is a BLOCKING popup','all windows remain inactive while popup active')
     i+=1
+    # the single event window
     if event == 'SINGLE1' and not single_window_active:
         single_window_active = True
         single_window_layout = [
@@ -59,8 +56,6 @@ while True:
         if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
-        if event == 'Show':
-            sg.popup('You entered', values['-IN-'])
 
 window.close()
 
