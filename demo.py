@@ -56,6 +56,22 @@ while True:
         if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
-
+    # the multiple event window
+    if event == 'MULTI1' and not multi_window_active:
+        multi_window_active = True
+        multi_window_layout = [
+                [sg.Text('Multiple-response item')],
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-IN-')],
+                [sg.Text('Selections', font=user_typeface), sg.Input(font=user_typeface)]
+                [sg.Submit('Done', key='MULTIDONE')]
+                ]
+        multi_window = sg.Window('Multiple-response item window', multi_window_layout)
+    if multi_window_active:
+        event, values = multi_window.read(timeout=100)
+        if event != sg.TIMEOUT_KEY:
+            print("multiple-reponse item window ", event)
+        if event in (None, 'Exit', 'MULTIDONE'):
+            single_window_active = False
+            single_window.close()
 window.close()
 
