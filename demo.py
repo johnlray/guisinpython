@@ -25,7 +25,7 @@ abc_randomization_window_active = False
 layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
         [sg.Text('What type of question do you want to write?', font=user_typeface)],
-        [sg.Button('Single', key='SINGLE1'), sg.Cancel()]
+        [sg.Button('Single', key='SINGLE1'), sg.Button('Multiple', key='MULTI1'), sg.Button('Openend', key='OPENEND1'), sg.Button('A-B test', key='ABTEST1'), sg.Button('A-B-C test', key='ABCTEST1'), sg.Cancel()]
         ]
 
 window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (700,300))
@@ -73,5 +73,6 @@ while True:
         if event in (None, 'Exit', 'MULTIDONE'):
             multi_window_active = False
             multi_window.close()
+    
 window.close()
 
