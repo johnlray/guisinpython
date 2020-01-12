@@ -71,7 +71,7 @@ while True:
         if event != sg.TIMEOUT_KEY:
             print("multiple-reponse item window ", event)
         if event in (None, 'Exit', 'MULTIDONE'):
-            single_window_active = False
-            single_window.close()
+            multi_window_active = False
+            multi_window.close()
 window.close()
 
