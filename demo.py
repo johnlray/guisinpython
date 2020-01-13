@@ -62,7 +62,7 @@ while True:
         multi_window_layout = [
                 [sg.Text('Multiple-response item')],
                 [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-IN-')],
-                [sg.Text('Selections', font=user_typeface), sg.Input(font=user_typeface)]
+                [sg.Text('Selections, separate by comma', font=user_typeface), sg.Input(font=user_typeface)]
                 [sg.Submit('Done', key='MULTIDONE')]
                 ]
         multi_window = sg.Window('Multiple-response item window', multi_window_layout)
