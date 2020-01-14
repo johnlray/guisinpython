@@ -77,8 +77,17 @@ while True:
     if event == 'OPENEND1' and not openend_window_active:
         openend_window_active = True
         open_window_layout = [
-                [sg.Text('Enter open-ended text here', font=user_typeface), sg.Input(font=user_typeface)]
+                [sg.Text('Enter open-ended text here', font=user_typeface), sg.Input(font=user_typeface)],
+                [sg.Submit('Done', key='OPENDONE')]
                 ]
+        open_window = sg.Window('Open-end item window', open_window_layout)
+    if open_window_active:
+        event, values = multi_window.read(timeout=100)
+        if event != sg.TIMEOUT_KEY:
+            print('open-end item window ', event)
+        if event in (None, 'Exit', 'OPENDONE'):
+            open_window_active = False
+            open_window.close()
     
 window.close()
 
