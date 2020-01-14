@@ -73,6 +73,12 @@ while True:
         if event in (None, 'Exit', 'MULTIDONE'):
             multi_window_active = False
             multi_window.close()
+    # the openend event window
+    if event == 'OPENEND1' and not openend_window_active:
+        openend_window_active = True
+        open_window_layout = [
+                [sg.Text('Enter open-ended text here', font=user_typeface), sg.Input(font=user_typeface)]
+                ]
     
 window.close()
 
