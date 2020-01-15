@@ -56,6 +56,7 @@ while True:
         if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
+            
     # the multiple event window
     if event == 'MULTI1' and not multi_window_active:
         multi_window_active = True
@@ -73,21 +74,26 @@ while True:
         if event in (None, 'Exit', 'MULTIDONE'):
             multi_window_active = False
             multi_window.close()
+            
     # the openend event window
     if event == 'OPENEND1' and not openend_window_active:
         openend_window_active = True
-        open_window_layout = [
-                [sg.Text('Enter open-ended text here', font=user_typeface), sg.Input(font=user_typeface)],
+        openend_window_layout = [
+                [sg.Text('Variable alias', font=user_typeface)],,
+                [sg.Text('Variable label', font=user_typeface)],
+                [sg.Text('Enter open-ended question text here', font=user_typeface), sg.Input(font=user_typeface)],
                 [sg.Submit('Done', key='OPENDONE')]
                 ]
-        open_window = sg.Window('Open-end item window', open_window_layout)
-    if open_window_active:
-        event, values = multi_window.read(timeout=100)
+        openend_window = sg.Window('Open-end item window', openend_window_layout)
+    if openend_window_active:
+        event, values = openend_window.read(timeout=100)
         if event != sg.TIMEOUT_KEY:
             print('open-end item window ', event)
         if event in (None, 'Exit', 'OPENDONE'):
-            open_window_active = False
-            open_window.close()
+            openend_window_active = False
+            openend_window.close()
+    # ab test
+    
     
 window.close()
 
