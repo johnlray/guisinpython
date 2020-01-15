@@ -42,9 +42,9 @@ while True:
         single_window_active = True
         single_window_layout = [
                 [sg.Text('Single-response item')],
-                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-IN-')],
+                [sg.Text('Variable alias: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS=')],
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS-')],
                 [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)],
-                [sg.Text('What type of item is it?', font=user_typeface)],
                 [sg.Radio('Support-oppose', 'RADIO1', font=user_typeface)],
                 [sg.Submit('Done', key='SINGLEDONE')]
                 ]
@@ -62,7 +62,8 @@ while True:
         multi_window_active = True
         multi_window_layout = [
                 [sg.Text('Multiple-response item')],
-                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-IN-')],
+                
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSEIN-')],
                 [sg.Text('Selections, separate by comma', font=user_typeface), sg.Input(font=user_typeface)]
                 [sg.Submit('Done', key='MULTIDONE')]
                 ]
@@ -79,8 +80,8 @@ while True:
     if event == 'OPENEND1' and not openend_window_active:
         openend_window_active = True
         openend_window_layout = [
-                [sg.Text('Variable alias', font=user_typeface)],,
-                [sg.Text('Variable label', font=user_typeface)],
+                [sg.Text('Variable alias', font=user_typeface), sg.Input(font=user_typeface, key='-OPENALIAS-' )],
+                [sg.Text('Variable label', font=user_typeface), sg.Input(font=user_typeface, key='-OPENLAB-')],
                 [sg.Text('Enter open-ended question text here', font=user_typeface), sg.Input(font=user_typeface)],
                 [sg.Submit('Done', key='OPENDONE')]
                 ]
