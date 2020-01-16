@@ -97,8 +97,8 @@ while True:
     if event == 'ABTEST1' and not abtest_window_active:
         abtest_window_active = True
         abtest_window_layout = [
-                [sg.Text('Variable alias', font=user_typeface), sg.Input(font=user_typeface, key='-OPENALIAS-' )],
-                [sg.Text('Variable label', font=user_typeface), sg.Input(font=user_typeface, key='-OPENLAB-')],
+                [sg.Text('Variable alias', font=user_typeface), sg.Input(font=user_typeface, key='-ABTESTALIAS-' )],
+                [sg.Text('Variable label', font=user_typeface), sg.Input(font=user_typeface, key='-ABTESTLAB-')],
                 [sg.Text('Enter statement A here', font=user_typeface), sg.Input(font=user_typeface)],
                 [sg.Text('Enter statement B here', font=user_typeface), sg.Input(font=user_typeface)],
 
