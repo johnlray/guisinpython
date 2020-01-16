@@ -19,8 +19,8 @@ single_window_active = False
 multi_window_active = False
 openend_window_active = False
 dyngrid_window_active = False
-ab_randomization_window_active = False
-abc_randomization_window_active = False
+abtest_window_active = False
+abctest_window_active = False
 
 layout = [
         [sg.Text('Pleae enter a variable label, text, and punches', font='Raleway 20')],
@@ -62,7 +62,7 @@ while True:
         multi_window_active = True
         multi_window_layout = [
                 [sg.Text('Multiple-response item')],
-                
+                                [sg.Text('Variable alias ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSEALIAS-')],
                 [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSEIN-')],
                 [sg.Text('Selections, separate by comma', font=user_typeface), sg.Input(font=user_typeface)]
                 [sg.Submit('Done', key='MULTIDONE')]
@@ -94,7 +94,24 @@ while True:
             openend_window_active = False
             openend_window.close()
     # ab test
-    
+    if event == 'ABTEST1' and not abtest_window_active:
+        abtest_window_active = True
+        abtest_window_layout = [
+                [sg.Text('Variable alias', font=user_typeface), sg.Input(font=user_typeface, key='-OPENALIAS-' )],
+                [sg.Text('Variable label', font=user_typeface), sg.Input(font=user_typeface, key='-OPENLAB-')],
+                [sg.Text('Enter statement A here', font=user_typeface), sg.Input(font=user_typeface)],
+                [sg.Text('Enter statement B here', font=user_typeface), sg.Input(font=user_typeface)],
+
+                [sg.Submit('Done', key='ABTESTDONE')]
+                ]
+        abtest_window = sg.Window('Open-end item window', abtest_window_layout)
+    if abtest_window_active:
+        event, values = abtest_window.read(timeout=100)
+        if event != sg.TIMEOUT_KEY:
+            print('open-end item window ', event)
+        if event in (None, 'Exit', 'ABTESTDONE'):
+            abtest_window_active = False
+            abtest_window.close()   
     
 window.close()
 
