@@ -56,6 +56,7 @@ while True:
         if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
+            print(values['-SINGLEALIAS-'])
             
     # the multiple event window
     if event == 'MULTI1' and not multi_window_active:
