@@ -45,7 +45,7 @@ while True:
                 [sg.Text('Variable alias: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS-')],
                 [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLELABEL-')],
                 [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEDESCRIPTION-')],
-                [sg.Radio('Support-oppose', 'RADIO1', font=user_typeface)],
+                [sg.Radio('Support-oppose', 'response_type', key='-SUPOP-', font=user_typeface), sg.Radio('Approve-disapprove', 'response_type', key='-APDIS-', font=user_typeface), sg.Radio('Favorable-unfavorable', 'response_type', key='-FAVUNFAV-', font=user_typeface)],
                 [sg.Submit('Done', key='SINGLEDONE')]
                 ]
         single_window = sg.Window('Single-response item window', single_window_layout)
@@ -59,7 +59,8 @@ while True:
             item = {
                     "alias": values['-SINGLEALIAS-'],
                     "label": values['-SINGLELABEL-'],
-                    "description": values['-SINGLEDESCRIPTION-']
+                    "description": values['-SINGLEDESCRIPTION-'],
+                    "type": values['-SUPOP-', '-APDIS-', '-FAVUNFAV-']
                     }
             print(item)
             
