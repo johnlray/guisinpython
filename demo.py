@@ -42,9 +42,9 @@ while True:
         single_window_active = True
         single_window_layout = [
                 [sg.Text('Single-response item')],
-                [sg.Text('Variable alias: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS=')],
-                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS-')],
-                [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface)],
+                [sg.Text('Variable alias: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEALIAS-')],
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLELABEL-')],
+                [sg.Text('Item text', font=user_typeface), sg.Input(font=user_typeface, key='-SINGLEDESCRIPTION-')],
                 [sg.Radio('Support-oppose', 'RADIO1', font=user_typeface)],
                 [sg.Submit('Done', key='SINGLEDONE')]
                 ]
@@ -56,7 +56,12 @@ while True:
         if event in (None, 'Exit', 'SINGLEDONE'):
             single_window_active = False
             single_window.close()
-            print(values['-SINGLEALIAS-'])
+            item = {
+                    "alias": values['-SINGLEALIAS-'],
+                    "label": values['-SINGLELABEL-'],
+                    "description": values['-SINGLEDESCRIPTION-']
+                    }
+            print(item)
             
     # the multiple event window
     if event == 'MULTI1' and not multi_window_active:
