@@ -70,8 +70,8 @@ while True:
         multi_window_layout = [
                 [sg.Text('Multiple-response item')],
                                 [sg.Text('Variable alias ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSEALIAS-')],
-                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSEIN-')],
-                [sg.Text('Selections, separate by comma', font=user_typeface), sg.Input(font=user_typeface)]
+                [sg.Text('Variable label: ', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIPLERESPONSELABEL-')],
+                [sg.Text('Selections, separate by comma', font=user_typeface), sg.Input(font=user_typeface, key='-MULTIOPTIONS=')]
                 [sg.Submit('Done', key='MULTIDONE')]
                 ]
         multi_window = sg.Window('Multiple-response item window', multi_window_layout)
@@ -85,9 +85,8 @@ while True:
             
             item = {
                     "alias": values['-MULTIPLERESPONSEALIAS-'],
-                    "label": values['-MULTIPLERESPONSEIN-'],
-                    #"description": values['-SINGLEDESCRIPTION-'],
-                    "type": values['-SUPOP-', '-APDIS-', '-FAVUNFAV-']
+                    "label": values['-MULTIPLERESPONSELABEL-'],
+                    "type": values['-MULTIOPTIONS-']
                     }
             print(item)
             
