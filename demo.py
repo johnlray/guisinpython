@@ -83,6 +83,14 @@ while True:
             multi_window_active = False
             multi_window.close()
             
+            item = {
+                    "alias": values['-MULTIPLERESPONSEALIAS-'],
+                    "label": values['-MULTIPLERESPONSEIN-'],
+                    #"description": values['-SINGLEDESCRIPTION-'],
+                    "type": values['-SUPOP-', '-APDIS-', '-FAVUNFAV-']
+                    }
+            print(item)
+            
     # the openend event window
     if event == 'OPENEND1' and not openend_window_active:
         openend_window_active = True
