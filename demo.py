@@ -135,9 +135,9 @@ while True:
             abtest_window.close()   
             
             item = {
-                    "alias": values['-MULTIPLERESPONSEALIAS-'],
-                    "label": values['-MULTIPLERESPONSELABEL-'],
-                    "type": values['-MULTIOPTIONS-']
+                    "alias": values['-ABTESTALIAS-'],
+                    "label": values['-ABTESTLAB-'],
+                    "type": values['-ABTESTONE-']
                     }
             print(item)
     
