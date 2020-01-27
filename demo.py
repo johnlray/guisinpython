@@ -107,6 +107,13 @@ while True:
         if event in (None, 'Exit', 'OPENDONE'):
             openend_window_active = False
             openend_window.close()
+            
+            item = {
+                    "alias": values['-OPENALIAS-'],
+                    "label": values['-OPENLAB-'],
+                    "type": values['-OPENDONE-']
+                    }
+            print(item)            
     # ab test
     if event == 'ABTEST1' and not abtest_window_active:
         abtest_window_active = True
@@ -126,6 +133,13 @@ while True:
         if event in (None, 'Exit', 'ABTESTDONE'):
             abtest_window_active = False
             abtest_window.close()   
+            
+            item = {
+                    "alias": values['-MULTIPLERESPONSEALIAS-'],
+                    "label": values['-MULTIPLERESPONSELABEL-'],
+                    "type": values['-MULTIOPTIONS-']
+                    }
+            print(item)
     
 window.close()
 
