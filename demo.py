@@ -30,6 +30,8 @@ layout = [
 
 window = sg.Window('Survey item entry window', layout, resizable=True, grab_anywhere=True, size = (700,300))
 
+items = {}
+
 i=0
 
 while True:
@@ -60,9 +62,13 @@ while True:
                     "alias": values['-SINGLEALIAS-'],
                     "label": values['-SINGLELABEL-'],
                     "description": values['-SINGLEDESCRIPTION-'],
-                    "type": values['-SUPOP-', '-APDIS-', '-FAVUNFAV-']
+                    "type_supop": values['-SUPOP-'],
+                    "type_apdis": values['-APDIS-'],
+                    "type_favunfav": values['-FAVUNFAV-']
                     }
-            print(item)
+            
+            items.update({values['-SINGLEALIAS-']: item})
+            print(items)
             
     # the multiple event window
     if event == 'MULTI1' and not multi_window_active:
@@ -88,7 +94,10 @@ while True:
                     "label": values['-MULTIPLERESPONSELABEL-'],
                     "type": values['-MULTIOPTIONS-']
                     }
-            print(item)
+            
+            items.update({values['-MULTIPLERESPONSEALIAS-']: item})
+
+            print(items)
             
     # the openend event window
     if event == 'OPENEND1' and not openend_window_active:
@@ -110,11 +119,15 @@ while True:
             
             item = {
                     "alias": values['-OPENALIAS-'],
-                    "label": values['-OPENLAB-'],
-                    "type": values['-OPENDONE-']
+                    "label": values['-OPENLAB-']
                     }
-            print(item)            
+            
+            items.update({values['-OPENALIAS-']: item})
+            print(items)  
+            
+    #
     # ab test
+    #
     if event == 'ABTEST1' and not abtest_window_active:
         abtest_window_active = True
         abtest_window_layout = [
@@ -139,7 +152,9 @@ while True:
                     "label": values['-ABTESTLAB-'],
                     "type": values['-ABTESTONE-']
                     }
-            print(item)
+            
+            items.update({values['-ABTESTALIAS-']: item})
+            print(items)
     
 window.close()
 
