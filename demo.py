@@ -158,3 +158,8 @@ while True:
     
 window.close()
 
+# every item:
+
+# wrap alias in curly braces
+
+# wrap label in quotes in curly braces
